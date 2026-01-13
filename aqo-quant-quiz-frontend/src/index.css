@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+@layer base {
+  body { @apply bg-gray-50 text-gray-900; }
+  h1,h2,h3,h4 { color: #0f172a; }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* custom container width */
+.container-max {
+  max-width: 1024px;
+}
+
+/* hero styles */
+.hero-gradient {
+  background-image: linear-gradient(90deg, rgba(99,102,241,0.06), rgba(79,70,229,0.03));
+}
+
+.card-glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.65));
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700 border border-indigo-100;
+}
+
+.logo-mark {
+  width: 40px; height: 40px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; background:linear-gradient(135deg,#6366f1,#06b6d4); color:white; font-weight:700;
+}
+
+/* Section utilities */
+.section {
+  padding-top: 3.5rem; /* 56px */
+  padding-bottom: 3.5rem;
+}
+
+.section-light {
+  background: linear-gradient(180deg, rgba(243,244,246,0.6), rgba(255,255,255,0.6));
+}
+
+.stat-number { font-size: 1.6rem; font-weight: 700; color: #111827; }
+
+.testimonial { border-radius: 12px; padding: 1.25rem; background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,250,250,0.7)); box-shadow: 0 6px 18px rgba(17,24,39,0.06); }
+
+.pricing-card { border-radius: 12px; padding: 1.25rem; background: white; border: 1px solid rgba(15,23,42,0.03); box-shadow: 0 4px 16px rgba(2,6,23,0.04); }
+
+/* Interactive/hover states */
+.card-glass, .pricing-card, .testimonial, .badge, .hero-illustration {
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.card-glass:hover, .pricing-card:hover, .testimonial:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(2,6,23,0.12);
+}
+
+.pricing-card .cta, .badge:hover { opacity: 0.95; transform: translateY(-3px); }
+
+.clickable { cursor: pointer; }
+
+.link-reset { display: block; color: inherit; text-decoration: none; }
+
+.btn-primary { @apply inline-flex items-center justify-center px-4 py-2 rounded-lg bg-indigo-600 text-white; transition: transform 150ms ease, box-shadow 150ms ease; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(99,102,241,0.18); }
+
+.btn-outline { @apply inline-flex items-center justify-center px-4 py-2 rounded-lg border; transition: transform 150ms ease; }
+.btn-outline:hover { transform: translateY(-3px); }
+
+/* FAQ */
+.faq-q { font-weight: 600; }
+.faq-a { color: #475569; }
+
+@media (min-width: 768px) {
+  .hero-illustration { width: 420px; height: 260px; }
+}
